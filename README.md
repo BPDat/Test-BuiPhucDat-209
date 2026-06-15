@@ -1,6 +1,6 @@
-# TikTok Vertical Scroll Feed - Bài Kiểm Tra Đầu Vào
+# Bài Kiểm Tra Đầu Vào
 
-Ứng dụng xem video dạng cuộn dọc (TikTok Clone) được xây dựng bằng **Next.js App Router**, **TypeScript**, **Tailwind CSS** và **Lucide React**.
+Ứng dụng xem video dạng cuộn dọc.
 
 *   **Ứng viên:** Bùi Phúc Đạt
 *   **Số điện thoại (3 số cuối):** 209
@@ -8,15 +8,23 @@
 
 ---
 
-## 🚀 Tính Năng Nổi Bật
+## 🚀 Tính Năng
 
-1. **Giao diện cuộn dọc (Vertical Scroll Layout)**: Cuộn mượt mà với Scroll Snapping chuẩn tỉ lệ di động.
-2. **Auto-play on scroll**: Tự động phát video khi cuộn tới và tạm dừng khi cuộn qua nhờ Intersection Observer.
+1. **Giao diện cuộn dọc (Vertical Scroll Layout)**
+2. **Tự động phát video**
 3. **Tính năng bổ sung**:
-   - Thả tim (Like) có hiệu ứng nảy (pop) mượt mà.
-   - Bật/tắt âm thanh (Mute/Unmute) trên từng video.
-   - Thanh tiến trình video (Progress bar) đồng bộ thời gian thực.
-   - Thanh điều hướng cân đối (Bottom Nav & Sidebar) hỗ trợ đầy đủ 5 mục (Trang chủ, Khám phá, Tạo video, Hộp thư, Hồ sơ).
+   - Thả tim.
+   - Bật/tắt âm thanh.
+   - Thanh tiến trình video.
+
+---
+
+## ⚙️ Logic Xử Lý Play/Pause Khi Cuộn Trang
+
+Dùng **Intersection Observer API** để theo dõi và điều khiển trạng thái phát video.
+1. **Theo dõi trạng thái hiển thị**: Khởi tạo một Observer ở component cha (`VideoFeed`) với cấu hình `threshold: 0.6` (khi ít nhất 60% diện tích video nằm trong màn hình).
+2. **Kích hoạt phát (Play)**: Khi video đạt ngưỡng hiển thị, component cha cập nhật ID video đang hoạt động, truyền `isActive = true` xuống component con để gọi hàm `.play()`.
+3. **Tạm dừng (Pause & Reset)**: Khi video cuộn qua, `isActive` chuyển thành `false`, gọi `.pause()` và reset thời gian phát về giây đầu tiên (`video.currentTime = 0`).
 
 ---
 
