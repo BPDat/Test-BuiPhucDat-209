@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Home, Compass, User, Plus } from "lucide-react";
+import { Home, Compass, User, Plus, MessageSquare } from "lucide-react";
 
 export default function BottomNav() {
   const [activeTab, setActiveTab] = useState("home");
@@ -37,8 +37,17 @@ export default function BottomNav() {
         <div className="absolute inset-0 bg-white rounded-lg flex items-center justify-center z-10">
           <Plus className="w-5 h-5 text-black stroke-[3]" />
         </div>
-      </button>
+      </button> 
 
+      <button
+        onClick={() => setActiveTab("inbox")}
+        className={`flex flex-col items-center justify-center w-16 h-full cursor-pointer transition-colors duration-150 ${
+          activeTab === "inbox" ? "text-white" : "text-zinc-500"
+        }`}
+      >
+        <MessageSquare className="w-5.5 h-5.5" />
+        <span className="text-[10px] mt-0.5 font-medium">Hộp thư</span>
+      </button>
 
       <button
         onClick={() => setActiveTab("profile")}
