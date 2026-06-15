@@ -4,7 +4,7 @@
 
 *   **Ứng viên:** Bùi Phúc Đạt
 *   **Số điện thoại (3 số cuối):** 209
-*   **Vercel Deployment:** [https://test-buiphucdat-209.vercel.app](https://test-buiphucdat-209.vercel.app)
+*   **Vercel Deployment:** [https://test-bui-phuc-dat-209.vercel.app/](https://test-bui-phuc-dat-209.vercel.app/)
 
 ---
 
